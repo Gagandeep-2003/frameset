@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>What are Frames?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 20px 30px;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #3f37c9;
+            border-bottom: 2px solid #4361ee;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #4361ee;
+            margin-top: 30px;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        .highlight {
+            background-color: #f0f2f5;
+            padding: 15px;
+            border-left: 4px solid #4361ee;
+            margin: 20px 0;
+        }
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #d63384;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .pros-cons {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .pros, .cons {
+            flex: 1;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .pros {
+            background-color: #d1e7dd;
+            border-left: 4px solid #198754;
+        }
+        .cons {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+        .history {
+            background-color: #e2e3e5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>What are HTML Frames?</h1>
+    
+    <div class="history">
+        <h3>Historical Context</h3>
+        <p>HTML frames were introduced in HTML 4.0 (1997) as a way to divide the browser window into multiple sections. Each section could display a different HTML document, allowing for more complex page layouts at a time when CSS was still in its infancy.</p>
+    </div>
+    
+    <p>Frames allow web developers to present documents in multiple views, which may be independent windows or subwindows. Multiple views offer designers a way to keep certain information visible, while other views are scrolled or replaced.</p>
+    
+    <h2>How Frames Work</h2>
+    
+    <p>When using frames, the browser window is divided into multiple rectangular regions. Each region displays a separate HTML document. The layout of these regions is defined by a special HTML document called a frameset document.</p>
+    
+    <div class="highlight">
+        <p>A frameset document has a different structure than a regular HTML document:</p>
+        <ul>
+            <li>It uses <code>&lt;frameset&gt;</code> instead of <code>&lt;body&gt;</code></li>
+            <li>It defines the layout of frames using <code>rows</code> and <code>cols</code> attributes</li>
+            <li>It uses <code>&lt;frame&gt;</code> tags to specify which HTML documents should be loaded into each frame</li>
+        </ul>
+    </div>
+    
+    <h2>Basic Example</h2>
+    
+    <pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Simple Frameset Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;frameset cols="25%,75%"&gt;
+    &lt;frame src="menu.html" name="menu"&gt;
+    &lt;frame src="content.html" name="content"&gt;
+    &lt;noframes&gt;
+        &lt;body&gt;
+            Your browser does not support frames.
+        &lt;/body&gt;
+    &lt;/noframes&gt;
+&lt;/frameset&gt;
+&lt;/html&gt;</code></pre>
+    
+    <p>In this example, the browser window is divided into two columns: the left column takes up 25% of the width and displays "menu.html", while the right column takes up 75% and displays "content.html".</p>
+    
+    <h2>Advantages and Disadvantages</h2>
+    
+    <div class="pros-cons">
+        <div class="pros">
+            <h3>Advantages (Historical)</h3>
+            <ul>
+                <li>Fixed navigation: Navigation menus could remain visible while content scrolled</li>
+                <li>Independent scrolling: Different sections could scroll independently</li>
+                <li>Reduced bandwidth: Only parts of the page needed to be reloaded</li>
+                <li>Layout control: Provided layout control before CSS was widely supported</li>
+            </ul>
+        </div>
+        <div class="cons">
+            <h3>Disadvantages</h3>
+            <ul>
+                <li>Accessibility issues: Screen readers have difficulty with frames</li>
+                <li>SEO problems: Search engines struggle to index framed content properly</li>
+                <li>Bookmarking issues: Users can't bookmark specific content within frames</li>
+                <li>Printing problems: Printing framed pages often produces unexpected results</li>
+                <li>Navigation confusion: The back button behavior can be confusing</li>
+                <li>Deprecated: Not supported in HTML5</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h2>Modern Alternatives</h2>
+    
+    <p>Today, the functionality that frames provided can be achieved through better methods:</p>
+    
+    <ul>
+        <li><strong>CSS layouts:</strong> For creating complex page layouts</li>
+        <li><strong>AJAX:</strong> For loading content dynamically without page refreshes</li>
+        <li><strong>iframes:</strong> For embedding external content (still supported in HTML5)</li>
+        <li><strong>CSS position: fixed:</strong> For creating elements that stay in place while other content scrolls</li>
+        <li><strong>JavaScript frameworks:</strong> For creating single-page applications with dynamic content loading</li>
+    </ul>
+</body>
+</html>

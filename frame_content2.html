@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Frame Attributes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 20px 30px;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #3f37c9;
+            border-bottom: 2px solid #4361ee;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #4361ee;
+            margin-top: 30px;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        .highlight {
+            background-color: #f0f2f5;
+            padding: 15px;
+            border-left: 4px solid #4361ee;
+            margin: 20px 0;
+        }
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #d63384;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f2f5;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .example {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML Frame Attributes</h1>
+    
+    <p>Both the <code>&lt;frameset&gt;</code> and <code>&lt;frame&gt;</code> tags have various attributes that control how frames are displayed and behave. Understanding these attributes is essential for working with HTML frames.</p>
+    
+    <h2>Frameset Attributes</h2>
+    
+    <p>The <code>&lt;frameset&gt;</code> tag defines how to divide the window into frames. It replaces the <code>&lt;body&gt;</code> tag in frameset documents.</p>
+    
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td><code>rows</code></td>
+            <td>Specifies the height of each row in the frameset. Values can be in pixels, percentages, or relative sizes using asterisk (*)</td>
+            <td><code>rows="100,*,200"</code></td>
+        </tr>
+        <tr>
+            <td><code>cols</code></td>
+            <td>Specifies the width of each column in the frameset. Values can be in pixels, percentages, or relative sizes using asterisk (*)</td>
+            <td><code>cols="25%,75%"</code></td>
+        </tr>
+        <tr>
+            <td><code>border</code></td>
+            <td>Specifies the width of the border between frames (in pixels)</td>
+            <td><code>border="5"</code></td>
+        </tr>
+        <tr>
+            <td><code>frameborder</code></td>
+            <td>Specifies whether or not to display borders between frames (1=yes, 0=no)</td>
+            <td><code>frameborder="0"</code></td>
+        </tr>
+        <tr>
+            <td><code>framespacing</code></td>
+            <td>Specifies the amount of space between frames (in pixels)</td>
+            <td><code>framespacing="10"</code></td>
+        </tr>
+    </table>
+    
+    <div class="example">
+        <h3>Example of Frameset with Attributes:</h3>
+        <code>&lt;frameset rows="100,*" cols="25%,75%" border="5" frameborder="1" framespacing="10"&gt;</code>
+    </div>
+    
+    <h2>Frame Attributes</h2>
+    
+    <p>The <code>&lt;frame&gt;</code> tag defines a single frame within a frameset. It specifies which HTML document should be displayed in that frame.</p>
+    
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td><code>src</code></td>
+            <td>Specifies the URL of the document to display in the frame</td>
+            <td><code>src="menu.html"</code></td>
+        </tr>
+        <tr>
+            <td><code>name</code></td>
+            <td>Assigns a name to the frame (used as the target for links)</td>
+            <td><code>name="content"</code></td>
+        </tr>
+        <tr>
+            <td><code>frameborder</code></td>
+            <td>Specifies whether or not to display a border around the frame (1=yes, 0=no)</td>
+            <td><code>frameborder="0"</code></td>
+        </tr>
+        <tr>
+            <td><code>marginwidth</code></td>
+            <td>Specifies the left and right margins inside the frame (in pixels)</td>
+            <td><code>marginwidth="10"</code></td>
+        </tr>
+        <tr>
+            <td><code>marginheight</code></td>
+            <td>Specifies the top and bottom margins inside the frame (in pixels)</td>
+            <td><code>marginheight="10"</code></td>
+        </tr>
+        <tr>
+            <td><code>noresize</code></td>
+            <td>Prevents the user from resizing the frame</td>
+            <td><code>noresize</code></td>
+        </tr>
+        <tr>
+            <td><code>scrolling</code></td>
+            <td>Specifies whether or not to display scrollbars in the frame (yes, no, auto)</td>
+            <td><code>scrolling="no"</code></td>
+        </tr>
+        <tr>
+            <td><code>longdesc</code></td>
+            <td>Specifies a URL to a document containing a long description of the frame's content</td>
+            <td><code>longdesc="framedesc.html"</code></td>
+        </tr>
+    </table>
+    
+    <div class="example">
+        <h3>Example of Frame with Attributes:</h3>
+        <code>&lt;frame src="content.html" name="mainFrame" frameborder="0" marginwidth="10" marginheight="10" scrolling="auto" noresize&gt;</code>
+    </div>
+    
+    <h2>Using Frame Names with Links</h2>
+    
+    <p>One of the most important attributes is the <code>name</code> attribute, which allows you to target specific frames with links. This is done using the <code>target</code> attribute in anchor tags.</p>
+    
+    <div class="highlight">
+        <h3>Example of Targeting Frames with Links:</h3>
+        <p>In a navigation frame, you might have links like this:</p>
+        <code>&lt;a href="page1.html" target="mainFrame"&gt;Page 1&lt;/a&gt;</code>
+        <p>This link would load "page1.html" in the frame named "mainFrame".</p>
+    </div>
+    
+    <h2>Special Target Names</h2>
+    
+    <p>There are also special predefined target names that have specific behaviors:</p>
+    
+    <table>
+        <tr>
+            <th>Target Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>_self</code></td>
+            <td>Loads the page in the same frame as the link</td>
+        </tr>
+        <tr>
+            <td><code>_parent</code></td>
+            <td>Loads the page in the parent frameset</td>
+        </tr>
+        <tr>
+            <td><code>_top</code></td>
+            <td>Loads the page in the full browser window, replacing all frames</td>
+        </tr>
+        <tr>
+            <td><code>_blank</code></td>
+            <td>Loads the page in a new browser window or tab</td>
+        </tr>
+    </table>
+</body>
+</html>

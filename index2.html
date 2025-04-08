@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>HTML Frames Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<!-- The frameset tag defines how to divide the browser window into frames -->
+<!-- The rows attribute specifies the height of each row (top frame is 80px, bottom frame takes the rest) -->
+<frameset rows="80,*">
+    <!-- Top frame for header -->
+    <frame src="frame_top.html" name="topFrame" scrolling="no" noresize>
+
+    <!-- Nested frameset for the remaining space, divided into columns -->
+    <!-- The cols attribute specifies the width of each column (left frame is 200px, right frame takes the rest) -->
+    <frameset cols="200,*">
+        <!-- Left frame for navigation -->
+        <frame src="frame_left.html" name="leftFrame">
+
+        <!-- Main content frame -->
+        <frame src="frame_main.html" name="mainFrame">
+    </frameset>
+
+    <!-- Provide alternative content for browsers that don't support frames -->
+    <noframes>
+        <body>
+            <p>Your browser does not support frames. Please upgrade to a browser that supports frames to view this website.</p>
+        </body>
+    </noframes>
+</frameset>
+</html>

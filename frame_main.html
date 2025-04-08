@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Main Content Frame</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 20px 30px;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #3f37c9;
+            border-bottom: 2px solid #4361ee;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #4361ee;
+            margin-top: 30px;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        .highlight {
+            background-color: #f0f2f5;
+            padding: 15px;
+            border-left: 4px solid #4361ee;
+            margin: 20px 0;
+        }
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #d63384;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f2f5;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Introduction to HTML Frames</h1>
+    
+    <p>Welcome to this educational demonstration of HTML frames. This page is designed to show how frames work in HTML, even though they are deprecated in modern web development.</p>
+    
+    <div class="highlight">
+        <p>This webpage is divided into three frames:</p>
+        <ul>
+            <li><strong>Top Frame:</strong> Contains the header</li>
+            <li><strong>Left Frame:</strong> Contains the navigation menu</li>
+            <li><strong>Main Frame:</strong> Contains the main content (you're viewing this now)</li>
+        </ul>
+    </div>
+    
+    <h2>What are HTML Frames?</h2>
+    
+    <p>HTML frames allow developers to divide the browser window into multiple sections, where each section can load a separate HTML document. This was commonly used for creating layouts with fixed navigation bars and headers.</p>
+    
+    <p>The main HTML tags used for frames are:</p>
+    
+    <table>
+        <tr>
+            <th>Tag</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>&lt;frameset&gt;</code></td>
+            <td>Defines a set of frames</td>
+        </tr>
+        <tr>
+            <td><code>&lt;frame&gt;</code></td>
+            <td>Defines a single frame within a frameset</td>
+        </tr>
+        <tr>
+            <td><code>&lt;noframes&gt;</code></td>
+            <td>Provides content for browsers that do not support frames</td>
+        </tr>
+    </table>
+    
+    <h2>Basic Frameset Structure</h2>
+    
+    <p>Here's the basic structure of the frameset used in this example:</p>
+    
+    <pre><code>&lt;frameset rows="80,*"&gt;
+    &lt;frame src="frame_top.html" name="topFrame" scrolling="no" noresize&gt;
+    
+    &lt;frameset cols="200,*"&gt;
+        &lt;frame src="frame_left.html" name="leftFrame"&gt;
+        &lt;frame src="frame_main.html" name="mainFrame"&gt;
+    &lt;/frameset&gt;
+    
+    &lt;noframes&gt;
+        &lt;body&gt;
+            &lt;p&gt;Your browser does not support frames.&lt;/p&gt;
+        &lt;/body&gt;
+    &lt;/noframes&gt;
+&lt;/frameset&gt;</code></pre>
+    
+    <div class="warning">
+        <h3>Important Note:</h3>
+        <p>Frames are deprecated in HTML5 and should not be used in modern web development. They have several disadvantages:</p>
+        <ul>
+            <li>Poor accessibility</li>
+            <li>SEO problems (search engines have difficulty indexing framed content)</li>
+            <li>Bookmarking issues</li>
+            <li>Printing problems</li>
+        </ul>
+        <p>Modern alternatives include CSS layouts, iframes (for specific use cases), and JavaScript-based solutions.</p>
+    </div>
+    
+    <p>Click on the navigation links in the left frame to learn more about HTML frames.</p>
+</body>
+</html>

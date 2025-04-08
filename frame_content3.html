@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Nested Framesets</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 20px 30px;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #3f37c9;
+            border-bottom: 2px solid #4361ee;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #4361ee;
+            margin-top: 30px;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        .highlight {
+            background-color: #f0f2f5;
+            padding: 15px;
+            border-left: 4px solid #4361ee;
+            margin: 20px 0;
+        }
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #d63384;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .example {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        .diagram {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .diagram img {
+            max-width: 100%;
+        }
+        .diagram-text {
+            display: inline-block;
+            border: 2px solid #4361ee;
+            padding: 10px;
+            margin: 5px;
+            min-width: 100px;
+        }
+        .diagram-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .diagram-row {
+            display: flex;
+            width: 100%;
+            gap: 10px;
+        }
+        .diagram-cell {
+            border: 2px solid #4361ee;
+            padding: 10px;
+            flex: 1;
+            text-align: center;
+            background-color: #f0f2f5;
+        }
+        .diagram-cell.header {
+            background-color: #4361ee;
+            color: white;
+        }
+        .diagram-cell.nav {
+            background-color: #3f37c9;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nested Framesets in HTML</h1>
+    
+    <p>Nested framesets allow for more complex frame layouts by placing one frameset inside another. This technique enables the creation of sophisticated multi-pane layouts that were popular in the early days of web development.</p>
+    
+    <h2>How Nested Framesets Work</h2>
+    
+    <p>A nested frameset is created when a <code>&lt;frameset&gt;</code> tag is placed inside another <code>&lt;frameset&gt;</code> tag instead of a <code>&lt;frame&gt;</code> tag. This allows for more complex divisions of the browser window.</p>
+    
+    <div class="highlight">
+        <p>The key points about nested framesets:</p>
+        <ul>
+            <li>A nested frameset replaces a frame in the parent frameset</li>
+            <li>The nested frameset can have its own rows and columns configuration</li>
+            <li>You can have multiple levels of nesting for very complex layouts</li>
+            <li>Each level can have different border and spacing settings</li>
+        </ul>
+    </div>
+    
+    <h2>Example of Nested Framesets</h2>
+    
+    <p>Here's an example of a nested frameset that creates a layout with a header at the top and a split view below it:</p>
+    
+    <pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Nested Frameset Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;frameset rows="100,*"&gt;
+    &lt;!-- Top frame for header --&gt;
+    &lt;frame src="header.html" name="headerFrame" scrolling="no" noresize&gt;
+    
+    &lt;!-- Nested frameset for the remaining space --&gt;
+    &lt;frameset cols="200,*"&gt;
+        &lt;!-- Left frame for navigation --&gt;
+        &lt;frame src="nav.html" name="navFrame"&gt;
+        
+        &lt;!-- Main content frame --&gt;
+        &lt;frame src="content.html" name="contentFrame"&gt;
+    &lt;/frameset&gt;
+    
+    &lt;noframes&gt;
+        &lt;body&gt;
+            Your browser does not support frames.
+        &lt;/body&gt;
+    &lt;/noframes&gt;
+&lt;/frameset&gt;
+&lt;/html&gt;</code></pre>
+    
+    <h2>Visual Representation</h2>
+    
+    <p>The above code would create a layout that looks like this:</p>
+    
+    <div class="diagram">
+        <div class="diagram-container">
+            <div class="diagram-row">
+                <div class="diagram-cell header" style="width: 100%;">Header Frame (100px height)</div>
+            </div>
+            <div class="diagram-row">
+                <div class="diagram-cell nav" style="width: 200px;">Navigation Frame<br>(200px width)</div>
+                <div class="diagram-cell" style="flex: 1;">Content Frame<br>(Remaining space)</div>
+            </div>
+        </div>
+    </div>
+    
+    <h2>More Complex Nested Framesets</h2>
+    
+    <p>You can create even more complex layouts by using multiple levels of nesting. Here's an example of a three-level nested frameset:</p>
+    
+    <pre><code>&lt;frameset rows="100,*,50"&gt;
+    &lt;!-- Top header --&gt;
+    &lt;frame src="header.html" name="headerFrame"&gt;
+    
+    &lt;!-- Middle section with nested frameset --&gt;
+    &lt;frameset cols="150,*,150"&gt;
+        &lt;!-- Left sidebar --&gt;
+        &lt;frame src="left.html" name="leftFrame"&gt;
+        
+        &lt;!-- Center with another nested frameset --&gt;
+        &lt;frameset rows="*,150"&gt;
+            &lt;!-- Main content --&gt;
+            &lt;frame src="main.html" name="mainFrame"&gt;
+            
+            &lt;!-- Bottom content area --&gt;
+            &lt;frame src="bottom.html" name="bottomFrame"&gt;
+        &lt;/frameset&gt;
+        
+        &lt;!-- Right sidebar --&gt;
+        &lt;frame src="right.html" name="rightFrame"&gt;
+    &lt;/frameset&gt;
+    
+    &lt;!-- Footer --&gt;
+    &lt;frame src="footer.html" name="footerFrame"&gt;
+&lt;/frameset&gt;</code></pre>
+    
+    <div class="diagram">
+        <div class="diagram-container">
+            <div class="diagram-row">
+                <div class="diagram-cell header" style="width: 100%;">Header Frame (100px height)</div>
+            </div>
+            <div class="diagram-row">
+                <div class="diagram-cell nav" style="width: 150px;">Left Sidebar<br>(150px width)</div>
+                <div class="diagram-cell" style="flex: 1;">
+                    Main Content Frame<br>(Remaining space)
+                </div>
+                <div class="diagram-cell nav" style="width: 150px;">Right Sidebar<br>(150px width)</div>
+            </div>
+            <div class="diagram-row">
+                <div class="diagram-cell nav" style="width: 150px;">Left Sidebar<br>(continued)</div>
+                <div class="diagram-cell" style="flex: 1; background-color: #e2e3e5;">Bottom Content Area<br>(150px height)</div>
+                <div class="diagram-cell nav" style="width: 150px;">Right Sidebar<br>(continued)</div>
+            </div>
+            <div class="diagram-row">
+                <div class="diagram-cell header" style="width: 100%;">Footer Frame (50px height)</div>
+            </div>
+        </div>
+    </div>
+    
+    <h2>Targeting Frames in Nested Framesets</h2>
+    
+    <p>When working with nested framesets, targeting the correct frame with links becomes more important. You can use the frame names to specify which frame should display the linked content.</p>
+    
+    <div class="example">
+        <h3>Example of Targeting in Nested Framesets:</h3>
+        <p>In the left sidebar, you might have links like:</p>
+        <code>&lt;a href="page1.html" target="mainFrame"&gt;Page 1&lt;/a&gt;</code>
+        <p>This would load "page1.html" in the main content frame, leaving all other frames unchanged.</p>
+    </div>
+    
+    <h2>Parent-Child Relationships</h2>
+    
+    <p>In nested framesets, frames have parent-child relationships. You can use special target names to navigate these relationships:</p>
+    
+    <ul>
+        <li><code>_parent</code> - Loads the document in the parent frameset</li>
+        <li><code>_top</code> - Loads the document in the full browser window, replacing all framesets</li>
+    </ul>
+    
+    <p>These are particularly useful in deeply nested framesets when you want to break out of the current frame structure.</p>
+</body>
+</html>
